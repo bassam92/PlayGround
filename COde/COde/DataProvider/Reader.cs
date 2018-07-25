@@ -9,9 +9,10 @@ namespace COde.DataProvider
 {
     public class Reader
     {
-        public void LoadJson()
+        public static void LoadJson()
         {
-            using (StreamReader r = new StreamReader("file.json"))
+            string filePath = WebApiConfig.FilePath();
+            using (StreamReader r = new StreamReader(filePath))
             {
                 string json = r.ReadToEnd();
                 List<Item> items = JsonConvert.DeserializeObject<List<Item>>(json);
